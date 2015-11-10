@@ -29,11 +29,12 @@ define('SECTION_PLUGINTYPE', 'artefact');
 define('SECTION_PLUGINNAME', 'flexifact');
 define('SECTION_PAGE', 'index');
 
-require(dirname(dirname(dirname(FILE))) . '/init.php');
+require(dirname(dirname(dirname(__FILE__))) . '/init.php');
+safe_require('artefact', 'flexifact');
 define('TITLE', get_string('flexifact', 'artefact.flexifact'));
 
 $indexstring = get_string('flexifacts', 'artefact.flexifact');
 
-$smarty = smarty();
+$smarty = smarty(array('paginator'));
 $smarty->assign('indexstring', $indexstring);
 $smarty->display('artefact:flexifact:index.tpl');
